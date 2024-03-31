@@ -10,11 +10,12 @@ import java.io.PrintWriter;
 public class Trazos {
 
     public Nodo cabeza;
-
+    
     public Trazos() {
         cabeza = null;
     }
 
+    
     public void agregar(Nodo n) {
 
         if (n != null) {
@@ -52,6 +53,7 @@ public class Trazos {
         return totalNodos;
     }
 
+    
     public boolean guardar(String nombreArchivo) {
         try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(nombreArchivo)))) {
             int totalFilas = getLongitud();
@@ -103,6 +105,7 @@ public class Trazos {
                         Nodo nuevoNodo = new Nodo(tipoTrazo, puntoInicio, puntoFin);
                        
                         agregar(nuevoNodo);
+                        Lienzo.trazos.add(nuevoNodo);
                     } else {
                         
                     }

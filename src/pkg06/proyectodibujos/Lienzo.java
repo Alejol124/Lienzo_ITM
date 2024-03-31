@@ -19,7 +19,7 @@ public class Lienzo extends javax.swing.JFrame {
     private Point esquina2 = null;
     int x1, x2;
     int y1, y2;
-    private ArrayList<Nodo> trazos;
+    public static ArrayList<Nodo> trazos;
 
     private boolean dibujarLinea = false, dibujarRectangulo = false, dibujarCirculo = false;
     private boolean primerClick = false, dibujandoLineaGuia = false;
@@ -195,11 +195,13 @@ public class Lienzo extends javax.swing.JFrame {
 
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        
         pnlLienzo.removeAll();
         pnlLienzo.repaint();
         String nombreArchivo = Archivo.elegirArchivo();
         if (!nombreArchivo.isEmpty()) {
             trazo.desdeArchivo(nombreArchivo);
+            
             dibujarTrazosEnPanel();
         }
         trazo.limpiarListaTrazos();
